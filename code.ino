@@ -31,8 +31,8 @@ void loop(){
 void avant ()
 {
 
-digitalWrite(IN1,LOW);  
-digitalWrite(IN2,HIGH);
+digitalWrite(IN1,HIGH);  
+digitalWrite(IN2,LOW);
 digitalWrite(IN3,HIGH);
 digitalWrite(IN4,LOW);
  
@@ -43,26 +43,26 @@ void arriere ()
 
 digitalWrite(IN1,LOW);  
 digitalWrite(IN2,HIGH);
-digitalWrite(IN3,HIGH);
-digitalWrite(IN4,LOW);
+digitalWrite(IN3,LOW);
+digitalWrite(IN4,HIGH);
  
 }
 
 void stop ()
 {
 
-digitalWrite(IN1,LOW);  
+digitalWrite(IN1,HIGH);  
 digitalWrite(IN2,HIGH);
 digitalWrite(IN3,HIGH);
-digitalWrite(IN4,LOW);
+digitalWrite(IN4,HIGH);
  
 }
 
 void gauche ()
 {
 
-digitalWrite(IN1,LOW);  
-digitalWrite(IN2,HIGH);
+digitalWrite(IN1,HIGH);  
+digitalWrite(IN2,LOW);
 digitalWrite(IN3,HIGH);
 digitalWrite(IN4,LOW);
  
@@ -71,8 +71,8 @@ digitalWrite(IN4,LOW);
 void droite ()
 {
 
-digitalWrite(IN1,LOW);  
-digitalWrite(IN2,HIGH);
+digitalWrite(IN1,HIGH);  
+digitalWrite(IN2,LOW);
 digitalWrite(IN3,HIGH);
 digitalWrite(IN4,LOW);
  
