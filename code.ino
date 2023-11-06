@@ -68,22 +68,22 @@ digitalWrite(IN4,LOW);
  
 }
 
-void gauche ()
+void gauche () 
 {
 
-digitalWrite(IN1,HIGH);  
-digitalWrite(IN2,LOW);
-digitalWrite(IN3,HIGH);
-digitalWrite(IN4,LOW);
+digitalWrite(IN1,HIGH);  // A CHANGER 
+digitalWrite(IN2,LOW);   // A CHANGER 
+digitalWrite(IN3,HIGH);  // A CHANGER 
+digitalWrite(IN4,LOW);   // A CHANGER 
  
 }
 
 void droite ()
 {
 
-digitalWrite(IN1,HIGH);  
-digitalWrite(IN2,LOW);
-digitalWrite(IN3,HIGH);
-digitalWrite(IN4,LOW);
+digitalWrite(IN1,HIGH);  // A CHANGER 
+digitalWrite(IN2,LOW);   // A CHANGER 
+digitalWrite(IN3,HIGH);  // A CHANGER 
+digitalWrite(IN4,LOW);   // A CHANGER 
  
 }
