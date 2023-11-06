@@ -11,41 +11,69 @@ int IN3=6; // Arduino Pin 6
 int IN4=7; // Arduino Pin 7
 
 void setup() {
- pinMode(ENA,OUTPUT);  //Les 6 pins configurées en sorties
- pinMode(ENB,OUTPUT);
- pinMode(IN1,OUTPUT);
- pinMode(IN2,OUTPUT);
- pinMode(IN3,OUTPUT);
- pinMode(IN4,OUTPUT);
- //Enable A et B, utilise les 2 ponts en H
+ Serial.begin(9600);
+
+ pinMode(ENA,OUTPUT);  // Les 6 pins configurées en sorties
+ pinMode(ENB,OUTPUT);  // 
+ pinMode(IN1,OUTPUT);  // 
+ pinMode(IN2,OUTPUT);  // 
+ pinMode(IN3,OUTPUT);  // 
+ pinMode(IN4,OUTPUT);  // 
+ //Enable A et B, utilise les 2 ponts en H bloque les deux roues
  digitalWrite(ENA,HIGH);// Activer pont A
  digitalWrite(ENB,HIGH);// Activer pont B
 }
 void loop(){
- // Un moteur Pas-à-pas se contrôle à l'aide de 4 battements
- // Séquences AB   A-B   A-B-  AB-  ou séquence  AB   AB-   A-B-   A-B
- 
  int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
-
+ 
 }
 
- digitalWrite(IN1,LOW);  //0110  A-B
- digitalWrite(IN2,HIGH);
- digitalWrite(IN3,HIGH);
- digitalWrite(IN4,LOW);
- 
- digitalWrite(IN1,LOW);  //0101  A-B-
- digitalWrite(IN2,HIGH);
- digitalWrite(IN3,LOW);
- digitalWrite(IN4,HIGH);
+void avant ()
+{
 
- digitalWrite(IN1,HIGH); //1001  AB-
- digitalWrite(IN2,LOW);
- digitalWrite(IN3,LOW);
- digitalWrite(IN4,HIGH);
+digitalWrite(IN1,LOW);  
+digitalWrite(IN2,HIGH);
+digitalWrite(IN3,HIGH);
+digitalWrite(IN4,LOW);
  
- digitalWrite(IN1,HIGH);  //1010  AB
- digitalWrite(IN2,LOW);
- digitalWrite(IN3,HIGH);
- digitalWrite(IN4,LOW);
+}
+
+void arriere ()
+{
+
+digitalWrite(IN1,LOW);  
+digitalWrite(IN2,HIGH);
+digitalWrite(IN3,HIGH);
+digitalWrite(IN4,LOW);
  
+}
+
+void stop ()
+{
+
+digitalWrite(IN1,LOW);  
+digitalWrite(IN2,HIGH);
+digitalWrite(IN3,HIGH);
+digitalWrite(IN4,LOW);
+ 
+}
+
+void gauche ()
+{
+
+digitalWrite(IN1,LOW);  
+digitalWrite(IN2,HIGH);
+digitalWrite(IN3,HIGH);
+digitalWrite(IN4,LOW);
+ 
+}
+
+void droite ()
+{
+
+digitalWrite(IN1,LOW);  
+digitalWrite(IN2,HIGH);
+digitalWrite(IN3,HIGH);
+digitalWrite(IN4,LOW);
+ 
+}
