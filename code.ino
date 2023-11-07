@@ -11,7 +11,7 @@ int IN3 = 6; // Arduino Pin 6
 int IN4 = 7; // Arduino Pin 7
 int servoPin = 9; // déclare la broche de contrôle du servo
 int ServoClose = 1500; // Position pince fermer ( valeur a changer )
-int ServoOpen  = 2000; // Position pince ouvert  ( valeur a changer )
+int ServoOpen  = 2500; // Position pince ouvert  ( valeur a changer )
 
 char commande;
 
