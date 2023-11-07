@@ -35,7 +35,7 @@ void loop(){
 
  //des données sur la liaison série (lorsque l'on appuie sur '1' ou '2')
  if (Serial.available())
- {
+  {
  char commande = Serial.read(); //on lit
 
  //on modifie la consigne si c'est un caractère qui nous intéresse
@@ -44,35 +44,30 @@ void loop(){
  //on modifie la consigne du servo
  monServo.writeMicroseconds(temps);
  //et on fait un retour sur la console pour savoir où on est rendu
-
+ mesurePince ();
  
- int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
+ 
+ // int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
   
+ }
 }
-
 void mesurePince ()
 {
 
- if      (commande == '1') temps = 1500; // Pince position fermé
-{
-
-Serial.print("position pince fermé : ");
-Serial.println(temps);
-
-}
- else if (commande == '2') temps = 2500; // Pince position ouvert
-{
-
-{
-
-Serial.print("position pince fermé : ");
-Serial.println(temps);
-
+  if (commande == '1') 
+  {
+    temps = 1500; // Pince position fermé
+    Serial.print("position pince fermé  : ");
+    Serial.println(temps);
+  }
+  else if (commande == '2') 
+  {
+    temps = 2500; // Pince position ouvert
+    Serial.print("position pince ouvert : ");
+    Serial.println(temps);
+  }
 }
 
-}
-
-}
 void avant ()
 {
 
