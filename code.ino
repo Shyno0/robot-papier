@@ -13,6 +13,8 @@ int servoPin = 9; // déclare la broche de contrôle du servo
 int ServoClose = 1500; // Position pince fermer ( valeur a changer )
 int ServoOpen  = 2000; // Position pince ouvert  ( valeur a changer )
 
+char commande;
+
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo ServoMoteur;  // on crée l'objet monServo
 
@@ -36,7 +38,7 @@ void loop(){
  //des données sur la liaison série (lorsque l'on appuie sur '1' ou '2')
  if (Serial.available())
   {
- char commande = Serial.read(); //on lit
+ commande = Serial.read(); //on lit
 
  //on modifie la consigne si c'est un caractère qui nous intéresse
  if      (commande == '1') temps = 1500; // Pince position fermé
