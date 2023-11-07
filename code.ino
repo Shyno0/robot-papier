@@ -41,8 +41,8 @@ void loop(){
  commande = Serial.read(); //on lit
 
  //on modifie la consigne si c'est un caractère qui nous intéresse
- if      (commande == '1') temps = 1500; // Pince position fermé
- else if (commande == '2') temps = 2500; // Pince position ouvert
+ if      (commande == '1') ServoClose; // Pince position fermé
+ else if (commande == '2') ServoOpen;  // Pince position ouvert
  //on modifie la consigne du servo
  monServo.writeMicroseconds(temps);
  //et on fait un retour sur la console pour savoir où on est rendu
