@@ -3,12 +3,12 @@
 // Moteur 2 phases pas à pas (4 fils)
 //============================================
 //Câblage du steper, utilise 6 broches
-int ENA=2; // Arduino Pin 2
-int IN1=3; // Arduino Pin 3
-int IN2=4; // Arduino Pin 4
-int ENB=5; // Arduino Pin 5
-int IN3=6; // Arduino Pin 6
-int IN4=7; // Arduino Pin 7
+int ENA = 2; // Arduino Pin 2
+int IN1 = 3; // Arduino Pin 3
+int IN2 = 4; // Arduino Pin 4
+int ENB = 5; // Arduino Pin 5
+int IN3 = 6; // Arduino Pin 6
+int IN4 = 7; // Arduino Pin 7
 int servoPin = 9; // déclare la broche de contrôle du servo
 int ServoOpen =  1000; // Position pince ouverte ( valeur a changer )
 int ServoClose = 2000; // Position pince fermer  ( valeur a changer )
