@@ -9,12 +9,14 @@ int IN2=4; // Arduino Pin 4
 int ENB=5; // Arduino Pin 5
 int IN3=6; // Arduino Pin 6
 int IN4=7; // Arduino Pin 7
+int servoPin = 9; // déclare la broche de contrôle du servo
 
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo monServo;     // on crée l'objet monServo
 
 void setup() {
  Serial.begin(9600);
+ monServo.attach(servoPin); // on définit le Pin utilisé par le servomoteur
 
  pinMode(ENA,OUTPUT);  // Les 6 pins configurées en sorties
  pinMode(ENB,OUTPUT);  // 
