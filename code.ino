@@ -10,8 +10,8 @@ int ENB = 5; // Arduino Pin 5
 int IN3 = 6; // Arduino Pin 6
 int IN4 = 7; // Arduino Pin 7
 int servoPin = 9; // déclare la broche de contrôle du servo
-int ServoOpen =  1000; // Position pince ouverte ( valeur a changer )
-int ServoClose = 2000; // Position pince fermer  ( valeur a changer )
+int ServoClose = 1500; // Position pince fermer ( valeur a changer )
+int ServoOpen  = 2000; // Position pince ouvert  ( valeur a changer )
 
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo ServoMoteur;  // on crée l'objet monServo
@@ -19,6 +19,7 @@ Servo ServoMoteur;  // on crée l'objet monServo
 void setup() {
  Serial.begin(9600);
  ServoMoteur.attach(servoPin); // on définit le Pin utilisé par le servomoteur
+ monServo.writeMicroseconds(ServoOpen); // position pince fermé
 
  pinMode(ENA,OUTPUT);  // Les 6 pins configurées en sorties
  pinMode(ENB,OUTPUT);  // 
