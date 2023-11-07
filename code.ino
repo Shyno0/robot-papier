@@ -10,10 +10,11 @@ int ENB = 5; // Arduino Pin 5
 int IN3 = 6; // Arduino Pin 6
 int IN4 = 7; // Arduino Pin 7
 int servoPin = 9; // déclare la broche de contrôle du servo
-int ServoClose = 1500; // Position pince fermer ( valeur a changer )
-int ServoOpen  = 2500; // Position pince ouvert  ( valeur a changer )
+int temps = 1000; // valeur servo de base
+int ServoClose = 1500; // Position pince fermer
+int ServoOpen  = 2500; // Position pince ouvert
 
-char commande;
+char commande; // Variable commande pour lire ensuite lire le Moniteur serie
 
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo ServoMoteur;  // on crée l'objet monServo
@@ -21,7 +22,7 @@ Servo ServoMoteur;  // on crée l'objet monServo
 void setup() {
  Serial.begin(9600);
  ServoMoteur.attach(servoPin); // on définit le Pin utilisé par le servomoteur
- monServo.writeMicroseconds(ServoOpen); // position pince fermé
+ ServoMoteur.writeMicroseconds(ServoClose); // position pince fermé
 
  pinMode(ENA,OUTPUT);  // Les 6 pins configurées en sorties
  pinMode(ENB,OUTPUT);  // 
@@ -44,15 +45,26 @@ void loop(){
  if      (commande == '1') ServoClose; // Pince position fermé
  else if (commande == '2') ServoOpen;  // Pince position ouvert
  //on modifie la consigne du servo
- monServo.writeMicroseconds(temps);
+ ServoMoteur.writeMicroseconds(temps);
  //et on fait un retour sur la console pour savoir où on est rendu
  mesurePince ();
  
- 
- // int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
+  }
+
+ {
+  if (Serial.available())
+  {
+    
+  if      (commande == '3') avant;   // le robot avance
+  else if (commande == '4') arriere; // le robot recule
+  else if (commande == '5') stop1;    // le robot s'arrete
   
+  }
+  //int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
+
  }
 }
+
 void mesurePince ()
 {
 
@@ -60,13 +72,13 @@ void mesurePince ()
   {
     temps = 1500; // Pince position fermé
     Serial.print("position pince fermé  : ");
-    Serial.println(temps);
+    Serial.println(ServoClose);
   }
   else if (commande == '2') 
   {
     temps = 2500; // Pince position ouvert
     Serial.print("position pince ouvert : ");
-    Serial.println(temps);
+    Serial.println(ServoOpen);
   }
 }
 
@@ -90,7 +102,7 @@ digitalWrite(IN4,HIGH);
  
 }
 
-void stop ()
+void stop1 ()
 {
 
 digitalWrite(IN1,HIGH);  
