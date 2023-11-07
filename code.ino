@@ -10,6 +10,9 @@ int ENB=5; // Arduino Pin 5
 int IN3=6; // Arduino Pin 6
 int IN4=7; // Arduino Pin 7
 
+#include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
+Servo monServo;     // on crée l'objet monServo
+
 void setup() {
  Serial.begin(9600);
 
@@ -26,6 +29,8 @@ void setup() {
 void loop(){
  int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
  
+
+
 }
 
 void avant ()
