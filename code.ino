@@ -42,12 +42,12 @@ void loop(){
  commande = Serial.read(); //on lit
 
  //on modifie la consigne si c'est un caractère qui nous intéresse
- if      (commande == '1') ServoClose; // Pince position fermé
- else if (commande == '2') ServoOpen;  // Pince position ouvert
+ if      (commande == '1') ServoClose; // Pince position fermé lorsqu'il reçoit ""
+ else if (commande == '2') ServoOpen;  // Pince position ouvert lorsqu'il reçoit ""
  //on modifie la consigne du servo
  ServoMoteur.writeMicroseconds(temps);
  //et on fait un retour sur la console pour savoir où on est rendu
- mesurePince ();
+ mesurePince (); // sous code mesurePince
  
   }
 
@@ -55,9 +55,11 @@ void loop(){
   if (Serial.available())
   {
     
-  if      (commande == '3') avant;   // le robot avance
-  else if (commande == '4') arriere; // le robot recule
-  else if (commande == '5') stop1;    // le robot s'arrete
+  if      (commande == '3') avant;   // le robot avance lorsqu'il reçoit ""
+  else if (commande == '4') arriere; // le robot recule lorsqu'il reçoit ""
+  else if (commande == '5') stop1;   // le robot s'arrete lorsqu'il reçoit ""
+  else if (commande == '6') gauche;  // le robot tourne a gauche lorsqu'il reçoit ""
+  else if (commande == '7') droite;  // le robot tourne a droite droite lorsqu'il reçoit ""
   
   }
   //int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
@@ -82,62 +84,62 @@ void mesurePince ()
   }
 }
 
-void avant ()
+void avant () // programme pour que le robot avance
 {
 
-digitalWrite(IN1,HIGH);  
+digitalWrite(IN1,HIGH); //broche IN1 alimenté
+digitalWrite(IN2,LOW);  //broche IN2 pas alimenté
+digitalWrite(IN3,HIGH); //broche IN3 alimenté
+digitalWrite(IN4,LOW);  //broche IN4 pas alimenté
+ 
+}
+
+void arriere () // programme pour que le robot recule
+{
+
+digitalWrite(IN1,LOW);  //broche IN1 pas alimenté
+digitalWrite(IN2,HIGH); //broche IN2 alimenté
+digitalWrite(IN3,LOW);  //broche IN3 pas alimenté
+digitalWrite(IN4,HIGH); //broche IN4 alimenté
+ 
+}
+
+void stop1 () // programme pour que le robot se stop
+{
+
+digitalWrite(IN1,HIGH); //broche IN1 alimenté
+digitalWrite(IN2,HIGH); //broche IN2 alimenté
+digitalWrite(IN3,HIGH); //broche IN3 alimenté
+digitalWrite(IN4,HIGH); //broche IN4 alimenté
+ 
+}
+
+void stop2 () // second programme pour que le robot se stop
+{
+
+digitalWrite(IN1,LOW); 
 digitalWrite(IN2,LOW);
-digitalWrite(IN3,HIGH);
+digitalWrite(IN3,LOW);
 digitalWrite(IN4,LOW);
  
 }
 
-void arriere ()
+void gauche () // programme pour que le robot tourne a gauche
 {
 
-digitalWrite(IN1,LOW);  
-digitalWrite(IN2,HIGH);
-digitalWrite(IN3,LOW);
-digitalWrite(IN4,HIGH);
+digitalWrite(IN1,HIGH);  // vitesse A CHANGER ET RAJOUTER 
+digitalWrite(IN2,LOW);    
+digitalWrite(IN3,HIGH);  // vitesse A CHANGER ET RAJOUTER
+digitalWrite(IN4,LOW);   
  
 }
 
-void stop1 ()
+void droite () // programme pour que le robot tourne a gauche
 {
 
-digitalWrite(IN1,HIGH);  
-digitalWrite(IN2,HIGH);
-digitalWrite(IN3,HIGH);
-digitalWrite(IN4,HIGH);
- 
-}
-
-void stop2 ()
-{
-
-digitalWrite(IN1,LOW);  
-digitalWrite(IN2,LOW);
-digitalWrite(IN3,LOW);
-digitalWrite(IN4,LOW);
- 
-}
-
-void gauche () 
-{
-
-digitalWrite(IN1,HIGH);  // A CHANGER 
-digitalWrite(IN2,LOW);   // A CHANGER 
-digitalWrite(IN3,HIGH);  // A CHANGER 
-digitalWrite(IN4,LOW);   // A CHANGER 
- 
-}
-
-void droite ()
-{
-
-digitalWrite(IN1,HIGH);  // A CHANGER 
-digitalWrite(IN2,LOW);   // A CHANGER 
-digitalWrite(IN3,HIGH);  // A CHANGER 
-digitalWrite(IN4,LOW);   // A CHANGER 
+digitalWrite(IN1,HIGH);  // vitesse A CHANGER ET RAJOUTER
+digitalWrite(IN2,LOW);   
+digitalWrite(IN3,HIGH);  // vitesse A CHANGER ET RAJOUTER
+digitalWrite(IN4,LOW);   
  
 }
