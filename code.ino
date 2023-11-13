@@ -57,7 +57,7 @@ void loop(){
   else if (commande == '4') arriere(); // le robot recule lorsqu'il reçoit "4"
   else if (commande == '5') gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
   else if (commande == '6') droite();  // le robot tourne a droite lorsqu'il reçoit "6"
-  else                       stop1();  // le robot se stop lorsqu'il ne reçoit rien
+  else if (commande == '7') stop1();  // le robot se stop lorsqu'il ne reçoit rien
   mesureDirection();
   //int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
 
@@ -85,26 +85,31 @@ void mesureDirection () // ecrit les mouvement du robot
   if      (commande == '3')   // le robot avance lorsqu'il reçoit "3"
  {
     Serial.println("Robot avance");
+    delay(10);
  }
  
   else if (commande == '4')   // le robot recule lorsqu'il reçoit "4"
  {
     Serial.println("Robot recule");
+    delay(10);
  }
  
   else if (commande == '5')    // le robot s'arrete lorsqu'il reçoit "5"
  {
     Serial.println("Robot tourne a gauche");
+    delay(10);
  }
  
   else if (commande == '6')   // le robot tourne a gauche lorsqu'il reçoit "6"
  {
     Serial.println("Robot tourne a droite");
+    delay(10);
  }
  
-  else  // le robot tourne a droite droite lorsqu'il ne reçoit rien
+  else if (commande == '7') // le robot tourne a droite droite lorsqu'il ne reçoit rien
  { 
     Serial.println("Robot ne bouge pas");
+    delay(10);
  }
 }
 
