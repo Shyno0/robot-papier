@@ -181,3 +181,69 @@ void mesureDirection () // ecrit les mouvement du robot
 // - Faire I2C
 // - Voir code a retirer potentiellement
 //============================================
+
+// code I2C ?
+
+// Fonction qui s execute si quelque chose est present sur l interface
+void receiveEvent()
+{
+int x = Wire.read(); // recevoir un chiffre
+Serial.println(x); // afficher ce chiffre sur l'interface serie
+if(x == 1)
+{
+      Serial.print("position pince fermé  : ");
+      Serial.println(ServoClose);
+      ServoMoteur.writeMicroseconds(ServoClose);
+}
+  
+else if(x == 2)
+{      
+      Serial.print("position pince ouvert : ");
+      Serial.println(ServoOpen);
+      ServoMoteur.writeMicroseconds(ServoOpen);
+}
+  
+else if(x == 3)
+{
+      avant();   // le robot avance lorsqu'il reçoit "3"
+      Serial.println("Robot avance");
+      delay(10);
+}
+  
+else if(x == 4)
+{
+      arriere(); // le robot recule lorsqu'il reçoit "4"
+      Serial.println("Robot recule");
+      delay(10);
+}
+  
+else if(x == 5)
+{
+      gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
+      Serial.println("Robot tourne a gauche");
+      delay(10);
+}
+else if(x == 6)
+{
+      droite();  // le robot tourne a droite lorsqu'il reçoit "6"
+      Serial.println("Robot tourne a droite");
+      delay(10);
+}
+else if(x == 7)
+{
+      stop1();  // le robot se stop lorsqu'il ne reçoit rien
+      Serial.println("Robot ne bouge pas");
+      delay(10);
+}
+  
+}
+
+//code setup
+
+//Wire.begin(4); // Rejoindre le bus à l'adresse #4
+//Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
+//pinMode(L1, OUTPUT); // L1 est une broche de sortie
+
+// code setup
+// code I2C
+
