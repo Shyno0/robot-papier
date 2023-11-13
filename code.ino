@@ -13,7 +13,7 @@ int servoPin = 9; // déclare la broche de contrôle du servo
 int temps = 1000; // valeur servo de base
 #define ServoClose  1500 
 // Position pince fermer
-#define ServoOpen   3000 
+#define ServoOpen   2500 
 // Position pince ouvert  
 
 char commande; // Variable commande pour lire ensuite lire le Moniteur serie
