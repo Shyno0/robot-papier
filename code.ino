@@ -11,8 +11,10 @@ int IN3 = 6; // Arduino Pin 6
 int IN4 = 7; // Arduino Pin 7
 int servoPin = 9; // déclare la broche de contrôle du servo
 int temps = 1000; // valeur servo de base
-int ServoClose = 1500; // Position pince fermer
-int ServoOpen  = 2500; // Position pince ouvert
+#define ServoClose  1500 
+// Position pince fermer
+#define ServoOpen   3000 
+// Position pince ouvert  
 
 char commande; // Variable commande pour lire ensuite lire le Moniteur serie
 
@@ -35,49 +37,45 @@ void setup() {
  digitalWrite(ENB,HIGH);// Activer pont B
 }
 void loop(){
-
- //des données sur la liaison série (lorsque l'on appuie sur '1' ou '2')
- if (Serial.available())
+  //des données sur la liaison série (lorsque l'on appuie sur '1' ou '2')
+  if (Serial.available())
   {
- commande = Serial.read(); //on lit
+    commande = Serial.read(); //on lit
 
- //on modifie la consigne si c'est un caractère qui nous intéresse
- if      (commande == '1') ServoClose; // Pince position fermé lorsqu'il reçoit "1"
- else if (commande == '2') ServoOpen;  // Pince position ouvert lorsqu'il reçoit "2"
- //on modifie la consigne du servo
- ServoMoteur.writeMicroseconds(temps);
- //et on fait un retour sur la console pour savoir où on est rendu
- mesurePince (); // sous code mesurePince
- 
+    //on modifie la consigne si c'est un caractère qui nous intéresse
+    if (commande == '1')      temps = ServoClose;// Pince position fermé
+    else if (commande == '2') temps = ServoOpen; // Pince position ouvert
+    //on modifie la consigne du servo
+    monServo.writeMicroseconds(temps);
+    //et on fait un retour sur la console pour savoir où on est rendu
+    mesurePince();
   }
 
  {
   if (Serial.available())
   {
     
-  if      (commande == '3') avant;   // le robot avance lorsqu'il reçoit "3"
-  else if (commande == '4') arriere; // le robot recule lorsqu'il reçoit "4"
-  else if (commande == '5') gauche;  // le robot tourne a gauche lorsqu'il reçoit "5"
-  else if (commande == '6') droite;  // le robot tourne a droite lorsqu'il reçoit "6"
-  else                       stop1;  // le robot se stop lorsqu'il ne reçoit rien
+  if      (commande == '3') avant();   // le robot avance lorsqu'il reçoit "3"
+  else if (commande == '4') arriere(); // le robot recule lorsqu'il reçoit "4"
+  else if (commande == '5') gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
+  else if (commande == '6') droite();  // le robot tourne a droite lorsqu'il reçoit "6"
+  else                       stop1();  // le robot se stop lorsqu'il ne reçoit rien
   }
   //int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
 
  }
 }
 
-void mesurePince () // ecrit la position de la pince du robot
+void mesurePince ()
 {
 
   if (commande == '1') 
   {
-    temps = 1500; // Pince position fermé
     Serial.print("position pince fermé  : ");
     Serial.println(ServoClose);
   }
   else if (commande == '2') 
   {
-    temps = 2500; // Pince position ouvert
     Serial.print("position pince ouvert : ");
     Serial.println(ServoOpen);
   }
