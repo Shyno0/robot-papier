@@ -44,47 +44,47 @@ void loop() {
   {
     commande = Serial.read(); //on lit
     
-    if (commande == '1')
+    if (commande == '1') // le robot ferme la pince lorsqu'il recoit 1
     {
-      Serial.print("position pince fermé  : ");
-      Serial.println(ServoClose);
-      ServoMoteur.writeMicroseconds(ServoClose);
+      Serial.print("position pince fermé  : "); // écrit le texte " "
+      Serial.println(ServoClose); // écrit " la valeur de ServoClose "
+      ServoMoteur.writeMicroseconds(ServoClose); // la pince se ferme
     }
-    else if (commande == '2')
+    else if (commande == '2') // le robot ouvre la pince lorsqu'il reçoit 2
     {
-      Serial.print("position pince ouvert : ");
-      Serial.println(ServoOpen);
-      ServoMoteur.writeMicroseconds(ServoOpen);
+      Serial.print("position pince ouvert : "); // écrit le texte " "
+      Serial.println(ServoOpen); // écrit " La valeur de ServoOpen "
+      ServoMoteur.writeMicroseconds(ServoOpen); // la pince s'ouvre
     }
-    else if (commande == '3')
+    else if (commande == '3') // le robot avance lorsqu'il reçoit "3"
     {
-      avant();   // le robot avance lorsqu'il reçoit "3"
-      Serial.println("Robot avance");
-      delay(10);
+      avant();   // le robot avance
+      Serial.println("Robot avance"); // écrit le texte " "
+      delay(10); // délai de 10 microseconde
     }
-    else if (commande == '4')
+    else if (commande == '4') // le robot recule lorsqu'il reçoit "4"
     {
-      arriere(); // le robot recule lorsqu'il reçoit "4"
-      Serial.println("Robot recule");
-      delay(10);
+      arriere(); // le robot recule
+      Serial.println("Robot recule"); // écrit le texte " "
+      delay(10); // délai de 10 microseconde
     }
-    else if (commande == '5')
+    else if (commande == '5') // le robot tourne a gauche lorsqu'il reçoit "5"
     {
-      gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
-      Serial.println("Robot tourne a gauche");
-      delay(10);
+      gauche();  // le robot tourne a gauche 
+      Serial.println("Robot tourne a gauche"); // écrit le texte " "
+      delay(10); // délai de 10 microseconde
     }
-    else if (commande == '6')
+    else if (commande == '6') // le robot tourne a droite lorsqu'il reçoit "6"
     {
-      droite();  // le robot tourne a droite lorsqu'il reçoit "6"
-      Serial.println("Robot tourne a droite");
-      delay(10);
+      droite();  // le robot tourne a droite
+      Serial.println("Robot tourne a droite"); // écrit le texte " "
+      delay(10); // délai de 10 microseconde
     }
-    else if (commande == '7')
+    else if (commande == '7') // le robot se stop lorsqu'il ne reçoit rien ( 7 pour les test)
     {
-      stop1();  // le robot se stop lorsqu'il ne reçoit rien
+      stop1();  // le robot se stop
       Serial.println("Robot ne bouge pas");
-      delay(10);
+      delay(10); // délai de 10 microseconde
     }
   }
 }
@@ -92,16 +92,16 @@ void loop() {
 void avant () // programme pour que le robot avance
 {
   digitalWrite(IN1, HIGH); //broche IN1 alimenté
-  digitalWrite(IN2, LOW); //broche IN2 pas alimenté
+  digitalWrite(IN2, LOW);  //broche IN2 pas alimenté
   digitalWrite(IN3, HIGH); //broche IN3 alimenté
-  digitalWrite(IN4, LOW); //broche IN4 pas alimenté
+  digitalWrite(IN4, LOW);  //broche IN4 pas alimenté
 }
 
 void arriere () // programme pour que le robot recule
 {
-  digitalWrite(IN1, LOW); //broche IN1 pas alimenté
+  digitalWrite(IN1, LOW);  //broche IN1 pas alimenté
   digitalWrite(IN2, HIGH); //broche IN2 alimenté
-  digitalWrite(IN3, LOW); //broche IN3 pas alimenté
+  digitalWrite(IN3, LOW);  //broche IN3 pas alimenté
   digitalWrite(IN4, HIGH); //broche IN4 alimenté
 }
 
