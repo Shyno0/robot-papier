@@ -46,21 +46,19 @@ void loop(){
     if (commande == '1')      temps = ServoClose;// Pince position fermé
     else if (commande == '2') temps = ServoOpen; // Pince position ouvert
     //on modifie la consigne du servo
-    monServo.writeMicroseconds(temps);
+    ServoMoteur.writeMicroseconds(temps);
     //et on fait un retour sur la console pour savoir où on est rendu
     mesurePince();
   }
 
  {
-  if (Serial.available())
-  {
     
   if      (commande == '3') avant();   // le robot avance lorsqu'il reçoit "3"
   else if (commande == '4') arriere(); // le robot recule lorsqu'il reçoit "4"
   else if (commande == '5') gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
   else if (commande == '6') droite();  // le robot tourne a droite lorsqu'il reçoit "6"
   else                       stop1();  // le robot se stop lorsqu'il ne reçoit rien
-  }
+  mesureDirection();
   //int tps = 20;  //Délai en ms entre deux commandes de changement de pas (vitesse du moteur)
 
  }
@@ -84,20 +82,24 @@ void mesurePince ()
 void mesureDirection () // ecrit les mouvement du robot
 {
 
-  if      (commande == '3');   // le robot avance lorsqu'il reçoit "3"
+  if      (commande == '3')   // le robot avance lorsqu'il reçoit "3"
  {
+    avant();
     Serial.println("Robot avance");
  }
-  else if (commande == '4') arriere; // le robot recule lorsqu'il reçoit "4"
+  else if (commande == '4') 
  {
+    arriere(); // le robot recule lorsqu'il reçoit "4"
     Serial.println("Robot recule");
  }
-  else if (commande == '5') gauche;   // le robot s'arrete lorsqu'il reçoit "5"
+  else if (commande == '5')    // le robot s'arrete lorsqu'il reçoit "5"
  {
+    gauche();
     Serial.println("Robot tourne a gauche");
  }
-  else if (commande == '6') droite;  // le robot tourne a gauche lorsqu'il reçoit "6"
+  else if (commande == '6')   // le robot tourne a gauche lorsqu'il reçoit "6"
  {
+    droite();
     Serial.println("Robot tourne a droite");
  }
   else  // le robot tourne a droite droite lorsqu'il ne reçoit rien
