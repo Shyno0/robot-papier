@@ -18,6 +18,8 @@ int temps = 1000; // valeur servo de base
 
 char commande; // Variable commande pour lire ensuite lire le Moniteur serie
 
+#include <Wire.h> // Librairie pour la communication I2C
+
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo ServoMoteur;  // on crée l'objet monServo
 
