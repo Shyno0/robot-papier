@@ -41,6 +41,7 @@ void loop() {
   if (Serial.available())
   {
     commande = Serial.read(); //on lit
+    
     if (commande == '1')
     {
       Serial.print("position pince fermé  : ");
@@ -83,9 +84,7 @@ void loop() {
       Serial.println("Robot ne bouge pas");
       delay(10);
     }
-
   }
-
 }
 
 void avant () // programme pour que le robot avance
@@ -112,14 +111,6 @@ void stop1 () // programme pour que le robot se stop
   digitalWrite(IN4, HIGH); //broche IN4 alimenté
 }
 
-void stop2 () // second programme pour que le robot se stop
-{
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, LOW);
-}
-
 void gauche () // programme pour que le robot tourne a gauche
 {
   digitalWrite(IN1, HIGH); // vitesse A CHANGER ET RAJOUTER
@@ -137,6 +128,14 @@ void droite () // programme pour que le robot tourne a gauche
 }
 
 // A RETIRER POTENTIELLEMENT
+
+void stop2 () // second programme pour que le robot se stop
+{
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+}
 
 void mesureDirection () // ecrit les mouvement du robot
 {
