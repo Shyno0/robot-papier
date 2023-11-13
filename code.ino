@@ -174,3 +174,10 @@ void mesureDirection () // ecrit les mouvement du robot
 }
 
 // RETIRER POTENTIELLEMENT
+
+//*******************************************
+// Commentaire programme
+// - Le moteur 2 ne fonctionne pas
+// - Faire I2C
+// - Voir code a retirer potentiellement
+//============================================
