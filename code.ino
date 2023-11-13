@@ -84,24 +84,24 @@ void mesureDirection () // ecrit les mouvement du robot
 
   if      (commande == '3')   // le robot avance lorsqu'il reçoit "3"
  {
-    avant();
     Serial.println("Robot avance");
  }
-  else if (commande == '4') 
+ 
+  else if (commande == '4')   // le robot recule lorsqu'il reçoit "4"
  {
-    arriere(); // le robot recule lorsqu'il reçoit "4"
     Serial.println("Robot recule");
  }
+ 
   else if (commande == '5')    // le robot s'arrete lorsqu'il reçoit "5"
  {
-    gauche();
     Serial.println("Robot tourne a gauche");
  }
+ 
   else if (commande == '6')   // le robot tourne a gauche lorsqu'il reçoit "6"
  {
-    droite();
     Serial.println("Robot tourne a droite");
  }
+ 
   else  // le robot tourne a droite droite lorsqu'il ne reçoit rien
  { 
     Serial.println("Robot ne bouge pas");
