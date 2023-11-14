@@ -19,11 +19,14 @@ int temps = 1000; // valeur servo de base
 char commande; // Variable commande pour lire ensuite lire le Moniteur serie
 
 #include <Wire.h> // Librairie pour la communication I2C
+#define I2C 8
+// Pin 8 définit 
 
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo ServoMoteur;  // on crée l'objet monServo
 
-void setup() {
+void setup() 
+{
   Serial.begin(9600);
   ServoMoteur.attach(servoPin); // on définit le Pin utilisé par le servomoteur
   ServoMoteur.writeMicroseconds(ServoClose); // position pince fermé
@@ -34,9 +37,14 @@ void setup() {
   pinMode(IN2, OUTPUT); //
   pinMode(IN3, OUTPUT); //
   pinMode(IN4, OUTPUT); //
+  
   //Enable A et B, utilise les 2 ponts en H bloque les deux roues
   digitalWrite(ENA, LOW); // Activer pont A
   digitalWrite(ENB, LOW); // Activer pont B
+  
+  Wire.begin(I2C);              // Rejoindre le bus
+  Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
+  
 }
 void loop() {
   //des données sur la liaison série (lorsque l'on appuie sur '1' ou '2')
@@ -137,8 +145,9 @@ void droite () // programme pour que le robot tourne a gauche
 
 //*******************************************
 // Commentaire programme
+// - Le moteur 2 ne fonctionne pas
 // - Faire I2C
-// - Moteur gauche plus lent
+// - Voir code a retirer potentiellement
 //============================================
 
 // code I2C ?
@@ -148,6 +157,7 @@ void receiveEvent()
 {
   int x = Wire.read(); // recevoir un chiffre
   Serial.println(x); // afficher ce chiffre sur l'interface serie
+  
   if (x == 1)
   {
     Serial.print("position pince fermé  : ");
@@ -194,12 +204,12 @@ void receiveEvent()
     Serial.println("Robot ne bouge pas");
     delay(10);
   }
+
 }
 
 //code setup
 
 //Wire.begin(4); // Rejoindre le bus à l'adresse #4
-//Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
 //pinMode(L1, OUTPUT); // L1 est une broche de sortie
 
 // code setup
