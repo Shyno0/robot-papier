@@ -43,7 +43,7 @@ void loop() {
   if (Serial.available())
   {
     commande = Serial.read(); //on lit
-    
+
     if (commande == '1')
     {
       Serial.print("position pince fermé  : ");
@@ -113,19 +113,12 @@ void arriere () // programme pour que le robot recule
 
 void stop1 () // programme pour que le robot se stop
 {
-  //digitalWrite(IN1, LOW); // broche IN1 pas alimenté
-  //digitalWrite(IN2, LOW); // broche IN2 pas alimenté
-  //digitalWrite(IN3, LOW); // broche IN3 pas alimenté
-  //digitalWrite(IN4, LOW); // broche IN4 pas alimenté 
-  
   digitalWrite(ENA, LOW); // Désactiver pont A
   digitalWrite(ENB, LOW); // Désactiver pont B
 }
 
 void gauche () // programme pour que le robot tourne a gauche
 {
-  //digitalWrite(IN1, LOW);  // broche IN1 pas alimenté
-  //digitalWrite(IN2, LOW);  // broche IN2 pas alimenté
   digitalWrite(IN3, HIGH); // broche IN3 alimenté vitesse A CHANGER ET RAJOUTER ?
   digitalWrite(IN4, LOW);  // broche IN4 pas alimenté
   delay(1);
@@ -137,8 +130,6 @@ void droite () // programme pour que le robot tourne a gauche
 {
   digitalWrite(IN1, HIGH); // broche IN1 alimenté vitesse A CHANGER ET RAJOUTER ?
   digitalWrite(IN2, LOW);  // broche IN2 pas alimenté
-  //digitalWrite(IN3, LOW);  // broche IN3 pas alimenté
-  //digitalWrite(IN4, LOW);  // broche IN4 pas alimenté
   delay(1);
   digitalWrite(ENA, HIGH); // Activer pont A
   digitalWrite(ENB, LOW);  // Désactiver pont A
@@ -156,55 +147,55 @@ void droite () // programme pour que le robot tourne a gauche
 // Fonction qui s execute si quelque chose est present sur l interface
 void receiveEvent()
 {
-int x = Wire.read(); // recevoir un chiffre
-Serial.println(x); // afficher ce chiffre sur l'interface serie
-if(x == 1)
-{
-      Serial.print("position pince fermé  : ");
-      Serial.println(ServoClose);
-      ServoMoteur.writeMicroseconds(ServoClose);
-}
-  
-else if(x == 2)
-{      
-      Serial.print("position pince ouvert : ");
-      Serial.println(ServoOpen);
-      ServoMoteur.writeMicroseconds(ServoOpen);
-}
-  
-else if(x == 3)
-{
-      avant();   // le robot avance lorsqu'il reçoit "3"
-      Serial.println("Robot avance");
-      delay(10);
-}
-  
-else if(x == 4)
-{
-      arriere(); // le robot recule lorsqu'il reçoit "4"
-      Serial.println("Robot recule");
-      delay(10);
-}
-  
-else if(x == 5)
-{
-      gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
-      Serial.println("Robot tourne a gauche");
-      delay(10);
-}
-else if(x == 6)
-{
-      droite();  // le robot tourne a droite lorsqu'il reçoit "6"
-      Serial.println("Robot tourne a droite");
-      delay(10);
-}
-else if(x == 7)
-{
-      stop1();  // le robot se stop lorsqu'il ne reçoit rien
-      Serial.println("Robot ne bouge pas");
-      delay(10);
-}
-  
+  int x = Wire.read(); // recevoir un chiffre
+  Serial.println(x); // afficher ce chiffre sur l'interface serie
+  if (x == 1)
+  {
+    Serial.print("position pince fermé  : ");
+    Serial.println(ServoClose);
+    ServoMoteur.writeMicroseconds(ServoClose);
+  }
+
+  else if (x == 2)
+  {
+    Serial.print("position pince ouvert : ");
+    Serial.println(ServoOpen);
+    ServoMoteur.writeMicroseconds(ServoOpen);
+  }
+
+  else if (x == 3)
+  {
+    avant();   // le robot avance lorsqu'il reçoit "3"
+    Serial.println("Robot avance");
+    delay(10);
+  }
+
+  else if (x == 4)
+  {
+    arriere(); // le robot recule lorsqu'il reçoit "4"
+    Serial.println("Robot recule");
+    delay(10);
+  }
+
+  else if (x == 5)
+  {
+    gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
+    Serial.println("Robot tourne a gauche");
+    delay(10);
+  }
+  else if (x == 6)
+  {
+    droite();  // le robot tourne a droite lorsqu'il reçoit "6"
+    Serial.println("Robot tourne a droite");
+    delay(10);
+  }
+  else if (x == 7)
+  {
+    stop1();  // le robot se stop lorsqu'il ne reçoit rien
+    Serial.println("Robot ne bouge pas");
+    delay(10);
+  }
+
 }
 
 //code setup
@@ -215,4 +206,3 @@ else if(x == 7)
 
 // code setup
 // code I2C
-
