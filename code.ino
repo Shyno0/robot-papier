@@ -138,6 +138,7 @@ void droite () // programme pour que le robot tourne a gauche
 //*******************************************
 // Commentaire programme
 // - Faire I2C
+// - Moteur gauche plus lent
 //============================================
 
 // code I2C ?
