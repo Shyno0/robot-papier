@@ -137,9 +137,7 @@ void droite () // programme pour que le robot tourne a gauche
 
 //*******************************************
 // Commentaire programme
-// - Le moteur 2 ne fonctionne pas
 // - Faire I2C
-// - Voir code a retirer potentiellement
 //============================================
 
 // code I2C ?
@@ -195,7 +193,6 @@ void receiveEvent()
     Serial.println("Robot ne bouge pas");
     delay(10);
   }
-
 }
 
 //code setup
