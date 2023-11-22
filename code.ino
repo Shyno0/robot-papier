@@ -158,47 +158,47 @@ void receiveEvent()
   int x = Wire.read(); // recevoir un chiffre
   Serial.println(x); // afficher ce chiffre sur l'interface serie
   
-  if (x == 1)
+  if (x == A)
   {
     Serial.print("position pince fermé  : ");
     Serial.println(ServoClose);
     ServoMoteur.writeMicroseconds(ServoClose);
   }
 
-  else if (x == 2)
+  else if (x == B)
   {
     Serial.print("position pince ouvert : ");
     Serial.println(ServoOpen);
     ServoMoteur.writeMicroseconds(ServoOpen);
   }
 
-  else if (x == 3)
+  else if (x == C)
   {
     avant();   // le robot avance lorsqu'il reçoit "3"
     Serial.println("Robot avance");
     delay(10);
   }
 
-  else if (x == 4)
+  else if (x == D)
   {
     arriere(); // le robot recule lorsqu'il reçoit "4"
     Serial.println("Robot recule");
     delay(10);
   }
 
-  else if (x == 5)
+  else if (x == F)
   {
     gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
     Serial.println("Robot tourne a gauche");
     delay(10);
   }
-  else if (x == 6)
+  else if (x == G)
   {
     droite();  // le robot tourne a droite lorsqu'il reçoit "6"
     Serial.println("Robot tourne a droite");
     delay(10);
   }
-  else if (x == 7)
+  else if
   {
     stop1();  // le robot se stop lorsqu'il ne reçoit rien
     Serial.println("Robot ne bouge pas");
