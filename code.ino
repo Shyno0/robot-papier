@@ -42,7 +42,7 @@ void setup()
   digitalWrite(ENA, LOW); // Activer pont A
   digitalWrite(ENB, LOW); // Activer pont B
   
-  Wire.begin(4);              // Rejoindre le bus adresse a changer ?
+  Wire.begin(I2C);              // Rejoindre le bus adresse a changer ?
   Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
   
 }
