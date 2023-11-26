@@ -154,7 +154,7 @@ void droite () // programme pour que le robot tourne a gauche
 // Fonction qui s execute si quelque chose est present sur l interface
 void receiveEvent()
 {
-  int x = Wire.read(); // recevoir un chiffre
+  int x = Wire.read(); // recevoir une lettre
   Serial.println(x); // afficher ce chiffre sur l'interface serie
   
   if (x == A)
