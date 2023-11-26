@@ -206,9 +206,4 @@ void receiveEvent()
 
 }
 
-//code setup
-
-//pinMode(L1, OUTPUT); // L1 est une broche de sortie
-
-// code setup
-// code I2C
+// code I2C ?
