@@ -145,9 +145,8 @@ void droite () // programme pour que le robot tourne a gauche
 
 //*******************************************
 // Commentaire programme
-// - Le moteur 2 ne fonctionne pas
-// - Faire I2C
-// - Voir code a retirer potentiellement
+// - L'un des moteurs est moins rapide
+// - Finir I2C
 //============================================
 
 // code I2C ?
