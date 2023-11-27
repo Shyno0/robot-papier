@@ -17,15 +17,16 @@ int temps = 1000; // valeur servo de base
 // Position pince ouvert
 
 char commande; // Variable commande pour lire ensuite lire le Moniteur serie
+char receiveData;
 
 #include <Wire.h> // Librairie pour la communication I2C
 #define I2C 8
-// Pin 8 définit 
+// Pin 8 définit
 
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo ServoMoteur;  // on crée l'objet monServo
 
-void setup() 
+void setup()
 {
   Serial.begin(9600);
   ServoMoteur.attach(servoPin); // on définit le Pin utilisé par le servomoteur
@@ -37,64 +38,69 @@ void setup()
   pinMode(IN2, OUTPUT); //
   pinMode(IN3, OUTPUT); //
   pinMode(IN4, OUTPUT); //
-  
+
   //Enable A et B, utilise les 2 ponts en H bloque les deux roues
   digitalWrite(ENA, LOW); // Activer pont A
   digitalWrite(ENB, LOW); // Activer pont B
-  
+
   Wire.begin(I2C);              // Rejoindre le bus adresse a changer ?
   Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
-  
+  receiveData = 0;
 }
 void loop() {
-  //des données sur la liaison série (lorsque l'on appuie sur '1' ou '2')
-  if (Serial.available())
-  {
-    commande = Serial.read(); //on lit
 
-    if (commande == '1')
+  if (receiveData != 0)
+  {
+    Serial.println(receiveData); // afficher ce chiffre sur l'interface serie
+
+    if (receiveData == 'A')
     {
       Serial.print("position pince fermé  : ");
       Serial.println(ServoClose);
       ServoMoteur.writeMicroseconds(ServoClose);
     }
-    else if (commande == '2')
+
+    else if (receiveData == 'B')
     {
       Serial.print("position pince ouvert : ");
       Serial.println(ServoOpen);
       ServoMoteur.writeMicroseconds(ServoOpen);
     }
-    else if (commande == '3')
+
+    else if (receiveData == 'C')
     {
       avant();   // le robot avance lorsqu'il reçoit "3"
       Serial.println("Robot avance");
       delay(10);
     }
-    else if (commande == '4')
+
+    else if (receiveData == 'D')
     {
       arriere(); // le robot recule lorsqu'il reçoit "4"
       Serial.println("Robot recule");
       delay(10);
     }
-    else if (commande == '5')
+
+    else if (receiveData == 'E')
     {
       gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
       Serial.println("Robot tourne a gauche");
       delay(10);
     }
-    else if (commande == '6')
+
+    else if (receiveData == 'F')
     {
       droite();  // le robot tourne a droite lorsqu'il reçoit "6"
       Serial.println("Robot tourne a droite");
       delay(10);
     }
-    else if (commande == '7')
+  }
+    else
     {
       stop1();  // le robot se stop lorsqu'il ne reçoit rien
       Serial.println("Robot ne bouge pas");
       delay(10);
     }
-  }
 }
 
 void avant () // programme pour que le robot avance
@@ -127,7 +133,7 @@ void stop1 () // programme pour que le robot se stop
 
 void gauche () // programme pour que le robot tourne a gauche
 {
-  digitalWrite(IN3, HIGH); // broche IN3 alimenté 
+  digitalWrite(IN3, HIGH); // broche IN3 alimenté
   digitalWrite(IN4, LOW);  // broche IN4 pas alimenté
   delay(1);
   digitalWrite(ENA, LOW);  // Désactiver pont A
@@ -149,62 +155,8 @@ void droite () // programme pour que le robot tourne a gauche
 // - Finir I2C
 //============================================
 
-// code I2C ?
-
 // Fonction qui s execute si quelque chose est present sur l interface
 void receiveEvent()
 {
-  int x = Wire.read(); // recevoir une lettre
-  Serial.println(x); // afficher ce chiffre sur l'interface serie
-  
-  if (x == 'A')
-  {
-    Serial.print("position pince fermé  : ");
-    Serial.println(ServoClose);
-    ServoMoteur.writeMicroseconds(ServoClose);
-  }
-
-  else if (x == 'B')
-  {
-    Serial.print("position pince ouvert : ");
-    Serial.println(ServoOpen);
-    ServoMoteur.writeMicroseconds(ServoOpen);
-  }
-
-  else if (x == 'C')
-  {
-    avant();   // le robot avance lorsqu'il reçoit "3"
-    Serial.println("Robot avance");
-    delay(10);
-  }
-
-  else if (x == 'D')
-  {
-    arriere(); // le robot recule lorsqu'il reçoit "4"
-    Serial.println("Robot recule");
-    delay(10);
-  }
-
-  else if (x == 'E')
-  {
-    gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
-    Serial.println("Robot tourne a gauche");
-    delay(10);
-  }
-  
-  else if (x == 'F')
-  {
-    droite();  // le robot tourne a droite lorsqu'il reçoit "6"
-    Serial.println("Robot tourne a droite");
-    delay(10);
-  }
-  
-  else
-  {
-    stop1();  // le robot se stop lorsqu'il ne reçoit rien
-    Serial.println("Robot ne bouge pas");
-    delay(10);
-  }
+  receiveData = Wire.read(); // recevoir une lettre
 }
-
-// code I2C ?
