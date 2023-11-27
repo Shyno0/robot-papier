@@ -55,51 +55,51 @@ void loop() {
 
     if (receiveData == 'A') // si le robot reçoit "A"
     {
-      Serial.print("position pince fermé  : ");
+      Serial.print("position pince fermé  : "); // ecrit dans le moniteur : position pince fermé  :
       Serial.println(ServoClose);
       ServoMoteur.writeMicroseconds(ServoClose); // le robot ferme la pince lorsqu'il reçoit "A"
     }
 
     else if (receiveData == 'B') // si le robot reçoit "B"
     {
-      Serial.print("position pince ouvert : ");
+      Serial.print("position pince ouvert : "); // ecrit dans le moniteur : position pince ouvert :
       Serial.println(ServoOpen);
       ServoMoteur.writeMicroseconds(ServoOpen); // le robot ouvre la pince lorsqu'il reçoit "B"
     }
 
     else if (receiveData == 'C') // si le robot reçoit "C"
     {
-      avant();   // le robot avance lorsqu'il reçoit "C"
-      Serial.println("Robot avance");
-      delay(10);
+      avant();                           // le robot avance lorsqu'il reçoit "C"
+      Serial.println("Le Robot avance"); // ecrit dans le moniteur : Le Robot avance
+      delay(10);                         // ajout d'un délai
     }
 
     else if (receiveData == 'D') // si le robot reçoit "D"
     {
-      arriere(); // le robot recule lorsqu'il reçoit "D"
-      Serial.println("Robot recule");
-      delay(10);
+      arriere();                         // le robot recule lorsqu'il reçoit "D"
+      Serial.println("Le Robot recule"); // ecrit dans le moniteur : Le Robot recule
+      delay(10);                         // ajout d'un délai
     }
 
     else if (receiveData == 'E') // si le robot reçoit "E"
     {
-      gauche();  // le robot tourne a gauche lorsqu'il reçoit "E"
-      Serial.println("Robot tourne a gauche");
-      delay(10);
+      gauche();                                   // le robot tourne a gauche lorsqu'il reçoit "E"
+      Serial.println("Le Robot tourne a gauche"); // ecrit dans le moniteur : Le Robot tourne a gauche
+      delay(10);                                  // ajout d'un délai
     }
 
     else if (receiveData == 'F') // si le robot reçoit "F"
     {
-      droite();  // le robot tourne a droite lorsqu'il reçoit "F"
-      Serial.println("Robot tourne a droite");
-      delay(10);
+      droite();                                   // le robot tourne a droite lorsqu'il reçoit "F"
+      Serial.println("Le Robot tourne a droite"); // ecrit dans le moniteur : Le Robot tourne a droite
+      delay(10);                                  // ajout d'un délai
     }
   }
-    else
+    else // si le robot reçoit rien ne rien faire
     {
-      stop1();  // le robot se stop lorsqu'il ne reçoit rien
-      Serial.println("Robot ne bouge pas");
-      delay(10);
+      stop1();                                 // le robot se stop lorsqu'il ne reçoit rien
+      Serial.println("Le Robot ne bouge pas"); // ecrit dans le moniteur : Le Robot ne bouge pas
+      delay(10);                               // ajout d'un délai
     }
 }
 
