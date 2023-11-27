@@ -43,7 +43,7 @@ void setup()
   digitalWrite(ENA, LOW); // Activer pont A
   digitalWrite(ENB, LOW); // Activer pont B
 
-  Wire.begin(9);              // Rejoindre le bus adresse a changer ?
+  Wire.begin(9);                // Rejoindre le bus adresse a changer ?
   Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
   receiveData = 0;              // On initialise receiveData a 0
 }
@@ -94,13 +94,13 @@ void loop() {
       Serial.println("Le Robot tourne a droite"); // ecrit dans le moniteur : Le Robot tourne a droite
       delay(10);                                  // ajout d'un délai
     }
-  }
     else // si le robot reçoit rien ne rien faire
     {
       stop1();                                 // le robot se stop lorsqu'il ne reçoit rien
       Serial.println("Le Robot ne bouge pas"); // ecrit dans le moniteur : Le Robot ne bouge pas
       delay(10);                               // ajout d'un délai
     }
+  }
 }
 
 void avant () // programme pour que le robot avance
@@ -150,9 +150,12 @@ void droite () // programme pour que le robot tourne a gauche
 }
 
 // Fonction qui s execute si quelque chose est present sur l interface
-void receiveEvent()
+void receiveEvent(int nb)
 {
-  receiveData = Wire.read(); // recevoir une lettre est égale a receiveData
+  //do{
+    receiveData = Wire.read(); // recevoir une lettre est égale a receiveData
+    //nb--;
+  //}while (nb>0);
 }
 
 //*******************************************
