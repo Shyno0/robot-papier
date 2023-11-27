@@ -152,7 +152,7 @@ void droite () // programme pour que le robot tourne a gauche
 // Fonction qui s execute si quelque chose est present sur l interface
 void receiveEvent()
 {
-  receiveData = Wire.read(); // recevoir une lettre
+  receiveData = Wire.read(); // recevoir une lettre est égale a receiveData
 }
 
 //*******************************************
