@@ -191,19 +191,20 @@ void receiveEvent()
     Serial.println("Robot tourne a gauche");
     delay(10);
   }
+  
   else if (x == 'F')
   {
     droite();  // le robot tourne a droite lorsqu'il reçoit "6"
     Serial.println("Robot tourne a droite");
     delay(10);
   }
+  
   else
   {
     stop1();  // le robot se stop lorsqu'il ne reçoit rien
     Serial.println("Robot ne bouge pas");
     delay(10);
   }
-
 }
 
 // code I2C ?
