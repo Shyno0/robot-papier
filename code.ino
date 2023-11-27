@@ -21,7 +21,7 @@ char receiveData; // Variable pour comparer une information reçus
 
 #include <Wire.h> // Librairie pour la communication I2C
 //#define I2C 8
-// Pin 8 définit
+// adresse 8 définit
 
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo ServoMoteur;  // on crée l'objet monServo
