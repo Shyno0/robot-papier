@@ -43,7 +43,7 @@ void setup()
   digitalWrite(ENA, LOW); // Activer pont A
   digitalWrite(ENB, LOW); // Activer pont B
 
-  Wire.begin(9);                // Rejoindre le bus adresse a changer ?
+  Wire.begin(8);                // Rejoindre le bus adresse a changer ?
   Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
   receiveData = 0;              // On initialise receiveData a 0
 }
@@ -51,6 +51,7 @@ void loop() {
 
   if (receiveData != 0) // si le caractère reçus est different de zero
   {
+    Serial.print(" Donnée reçue via I2C : "); 
     Serial.println(receiveData); // afficher le caractère sur l'interface serie
 
     if (receiveData == 'A') // si le robot reçoit "A"
@@ -94,7 +95,7 @@ void loop() {
       Serial.println("Le Robot tourne a droite"); // ecrit dans le moniteur : Le Robot tourne a droite
       delay(10);                                  // ajout d'un délai
     }
-    else // si le robot ne reçoit pas l'un de ses caractère ne rien faire
+    else // si le robot reçoit rien ne rien faire
     {
       stop1();                                 // le robot se stop lorsqu'il ne reçoit rien
       Serial.println("Le Robot ne bouge pas"); // ecrit dans le moniteur : Le Robot ne bouge pas
