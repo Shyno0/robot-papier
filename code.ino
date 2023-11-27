@@ -185,13 +185,13 @@ void receiveEvent()
     delay(10);
   }
 
-  else if (x == 'F')
+  else if (x == 'E')
   {
     gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
     Serial.println("Robot tourne a gauche");
     delay(10);
   }
-  else if (x == 'G')
+  else if (x == 'F')
   {
     droite();  // le robot tourne a droite lorsqu'il reçoit "6"
     Serial.println("Robot tourne a droite");
