@@ -16,8 +16,8 @@ int temps = 1000; // valeur servo de base
 #define ServoOpen   2500
 // Position pince ouvert
 
-char commande; // Variable commande pour lire ensuite lire le Moniteur serie
-char receiveData;
+char commande;    // Variable commande pour lire ensuite lire le Moniteur serie
+char receiveData; // Variable pour comparer une information reçus
 
 #include <Wire.h> // Librairie pour la communication I2C
 #define I2C 8
