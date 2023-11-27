@@ -160,3 +160,55 @@ void receiveEvent()
 {
   receiveData = Wire.read(); // recevoir une lettre
 }
+
+void CommandeRobot()
+{
+  //des données sur la liaison série (lorsque l'on appuie sur '1' ou '2')
+  if (Serial.available())
+  {
+    commande = Serial.read(); //on lit
+
+    if (commande == '1')
+    {
+      Serial.print("position pince fermé  : ");
+      Serial.println(ServoClose);
+      ServoMoteur.writeMicroseconds(ServoClose);
+    }
+    else if (commande == '2')
+    {
+      Serial.print("position pince ouvert : ");
+      Serial.println(ServoOpen);
+      ServoMoteur.writeMicroseconds(ServoOpen);
+    }
+    else if (commande == '3')
+    {
+      avant();   // le robot avance lorsqu'il reçoit "3"
+      Serial.println("Robot avance");
+      delay(10);
+    }
+    else if (commande == '4')
+    {
+      arriere(); // le robot recule lorsqu'il reçoit "4"
+      Serial.println("Robot recule");
+      delay(10);
+    }
+    else if (commande == '5')
+    {
+      gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
+      Serial.println("Robot tourne a gauche");
+      delay(10);
+    }
+    else if (commande == '6')
+    {
+      droite();  // le robot tourne a droite lorsqu'il reçoit "6"
+      Serial.println("Robot tourne a droite");
+      delay(10);
+    }
+    else if (commande == '7')
+    {
+      stop1();  // le robot se stop lorsqu'il ne reçoit rien
+      Serial.println("Robot ne bouge pas");
+      delay(10);
+    }
+  }
+}
