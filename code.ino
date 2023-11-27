@@ -49,7 +49,7 @@ void setup()
 }
 void loop() {
 
-  if (receiveData != 0)
+  if (receiveData != 0) // si le caractère reçus est different de zero
   {
     Serial.println(receiveData); // afficher le caractère sur l'interface serie
 
