@@ -57,40 +57,40 @@ void loop() {
     {
       Serial.print("position pince fermé  : ");
       Serial.println(ServoClose);
-      ServoMoteur.writeMicroseconds(ServoClose);
+      ServoMoteur.writeMicroseconds(ServoClose); // le robot ferme la pince lorsqu'il reçoit "A"
     }
 
     else if (receiveData == 'B')
     {
       Serial.print("position pince ouvert : ");
       Serial.println(ServoOpen);
-      ServoMoteur.writeMicroseconds(ServoOpen);
+      ServoMoteur.writeMicroseconds(ServoOpen); // le robot ouvre la pince lorsqu'il reçoit "B"
     }
 
     else if (receiveData == 'C')
     {
-      avant();   // le robot avance lorsqu'il reçoit "3"
+      avant();   // le robot avance lorsqu'il reçoit "C"
       Serial.println("Robot avance");
       delay(10);
     }
 
     else if (receiveData == 'D')
     {
-      arriere(); // le robot recule lorsqu'il reçoit "4"
+      arriere(); // le robot recule lorsqu'il reçoit "D"
       Serial.println("Robot recule");
       delay(10);
     }
 
     else if (receiveData == 'E')
     {
-      gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
+      gauche();  // le robot tourne a gauche lorsqu'il reçoit "E"
       Serial.println("Robot tourne a gauche");
       delay(10);
     }
 
     else if (receiveData == 'F')
     {
-      droite();  // le robot tourne a droite lorsqu'il reçoit "6"
+      droite();  // le robot tourne a droite lorsqu'il reçoit "F"
       Serial.println("Robot tourne a droite");
       delay(10);
     }
