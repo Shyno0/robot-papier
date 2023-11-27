@@ -45,7 +45,7 @@ void setup()
 
   Wire.begin(I2C);              // Rejoindre le bus adresse a changer ?
   Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
-  receiveData = 0;
+  receiveData = 0;              // On initialise receiveData a 0
 }
 void loop() {
 
