@@ -43,7 +43,7 @@ void setup()
   digitalWrite(ENA, LOW); // Activer pont A
   digitalWrite(ENB, LOW); // Activer pont B
 
-  Wire.begin(8);              // Rejoindre le bus adresse a changer ?
+  Wire.begin(9);              // Rejoindre le bus adresse a changer ?
   Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
   receiveData = 0;              // On initialise receiveData a 0
 }
