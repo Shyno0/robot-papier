@@ -149,17 +149,17 @@ void droite () // programme pour que le robot tourne a gauche
   digitalWrite(ENB, LOW);  // Désactiver pont A
 }
 
-//*******************************************
-// Commentaire programme
-// - L'un des moteurs est moins rapide
-// - Finir I2C
-//============================================
-
 // Fonction qui s execute si quelque chose est present sur l interface
 void receiveEvent()
 {
   receiveData = Wire.read(); // recevoir une lettre
 }
+
+//*******************************************
+// Commentaire programme
+// - L'un des moteurs est moins rapide
+// - I2C normalement finit
+//============================================
 
 void CommandeRobot()
 {
