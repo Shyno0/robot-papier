@@ -28,8 +28,8 @@ Servo ServoMoteur;  // on crée l'objet monServo
 
 void setup()
 {
-  Serial.begin(9600);
-  ServoMoteur.attach(servoPin); // on définit le Pin utilisé par le servomoteur
+  Serial.begin(9600);                        // Ouvre le port série
+  ServoMoteur.attach(servoPin);              // on définit le Pin utilisé par le servomoteur
   ServoMoteur.writeMicroseconds(ServoClose); // position pince fermé
 
   pinMode(ENA, OUTPUT); // Les 6 pins configurées en sorties
