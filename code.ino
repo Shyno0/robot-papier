@@ -51,7 +51,7 @@ void loop() {
 
   if (receiveData != 0)
   {
-    Serial.println(receiveData); // afficher ce chiffre sur l'interface serie
+    Serial.println(receiveData); // afficher le caractère sur l'interface serie
 
     if (receiveData == 'A') // si le robot reçoit "A"
     {
