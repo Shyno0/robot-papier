@@ -197,7 +197,7 @@ void receiveEvent()
     Serial.println("Robot tourne a droite");
     delay(10);
   }
-  else if
+  else
   {
     stop1();  // le robot se stop lorsqu'il ne reçoit rien
     Serial.println("Robot ne bouge pas");
