@@ -141,7 +141,7 @@ void gauche () // programme pour que le robot tourne a gauche
   digitalWrite(ENB, HIGH); // Activer pont B
 }
 
-void droite () // programme pour que le robot tourne a gauche
+void droite () // programme pour que le robot tourne a droite
 {
   digitalWrite(IN1, HIGH); // broche IN1 alimenté
   digitalWrite(IN2, LOW);  // broche IN2 pas alimenté
