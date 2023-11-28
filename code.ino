@@ -155,8 +155,6 @@ void receiveEvent(int nb)
 {
   //do{
     receiveData = Wire.read(); // recevoir une lettre est égale a receiveData
-    //nb--;
-  //}while (nb>0);
 }
 
 //*******************************************
