@@ -95,7 +95,7 @@ void loop() {
     }
     else // si le robot reçoit rien ne rien faire
     {
-      stop1();                                 // le robot se stop lorsqu'il ne reçoit rien
+      stop1();                                 // le robot se stop lorsqu'il reçoit autre chose
       Serial.println("Le Robot ne bouge pas"); // ecrit dans le moniteur : Le Robot ne bouge pas
       delay(10);                               // ajout d'un délai
     }
