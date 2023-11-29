@@ -168,47 +168,47 @@ void CommandeRobot()
   {
     commande = Serial.read(); //on lit
 
-    if (commande == '1')
+    if (commande == '1') // si l'on envoie un "1" dans le moniteur serie
     {
-      Serial.print("position pince fermé  : ");
+      Serial.print("position pince fermé  : ");  // ecrit dans le moniteur : position pince fermé  :
       Serial.println(ServoClose);
-      ServoMoteur.writeMicroseconds(ServoClose);
+      ServoMoteur.writeMicroseconds(ServoClose); // La pince ce ferme
     }
-    else if (commande == '2')
+    else if (commande == '2') // si l'on envoie un "2" dans le moniteur serie
     {
-      Serial.print("position pince ouvert : ");
+      Serial.print("position pince ouvert : "); // ecrit dans le moniteur : position pince ouvert  :
       Serial.println(ServoOpen);
-      ServoMoteur.writeMicroseconds(ServoOpen);
+      ServoMoteur.writeMicroseconds(ServoOpen); // La pince s'ouvre
     }
-    else if (commande == '3')
+    else if (commande == '3') // si l'on envoie un "3" dans le moniteur serie
     {
-      avant();   // le robot avance lorsqu'il reçoit "3"
-      Serial.println("Robot avance");
-      delay(10);
+      avant();                        // le robot avance lorsqu'il reçoit "3"
+      Serial.println("Robot avance"); // ecrit dans le moniteur : Robot avance
+      delay(10);                      // ajout d'un délai
     }
-    else if (commande == '4')
+    else if (commande == '4') // si l'on envoie un "4" dans le moniteur serie
     {
-      arriere(); // le robot recule lorsqu'il reçoit "4"
-      Serial.println("Robot recule");
-      delay(10);
+      arriere();                      // le robot recule lorsqu'il reçoit "4"
+      Serial.println("Robot recule"); // ecrit dans le moniteur : Robot recule 
+      delay(10);                      // ajout d'un délai
     }
-    else if (commande == '5')
+    else if (commande == '5') // si l'on envoie un "5" dans le moniteur serie
     {
-      gauche();  // le robot tourne a gauche lorsqu'il reçoit "5"
-      Serial.println("Robot tourne a gauche");
-      delay(10);
+      gauche();                                // le robot tourne a gauche lorsqu'il reçoit "5"
+      Serial.println("Robot tourne a gauche"); // ecrit dans le moniteur : Robot tourne a gauche 
+      delay(10);                               // ajout d'un délai
     }
-    else if (commande == '6')
+    else if (commande == '6') // si l'on envoie un "6" dans le moniteur serie
     {
-      droite();  // le robot tourne a droite lorsqu'il reçoit "6"
-      Serial.println("Robot tourne a droite");
-      delay(10);
+      droite();                                // le robot tourne a droite lorsqu'il reçoit "6"
+      Serial.println("Robot tourne a droite"); // ecrit dans le moniteur : Robot tourne a droite
+      delay(10);                               // ajout d'un délai
     }
-    else if (commande == '7')
+    else if (commande == '7') // si l'on envoie un "7" dans le moniteur serie
     {
-      stop1();  // le robot se stop lorsqu'il ne reçoit rien
-      Serial.println("Robot ne bouge pas");
-      delay(10);
+      stop1();                              // le robot se stop lorsqu'il reçoit "7"
+      Serial.println("Robot ne bouge pas"); // ecrit dans le moniteur : Robot ne bouge pas
+      delay(10);                            // ajout d'un délai
     }
   }
 }
