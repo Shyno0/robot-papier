@@ -20,8 +20,6 @@ char commande;    // Variable commande pour lire ensuite lire le Moniteur serie
 char receiveData; // Variable pour comparer une information reçus
 
 #include <Wire.h> // Librairie pour la communication I2C
-//#define I2C 8
-// adresse 8 définit
 
 #include <Servo.h>  // on inclut la bibliothèque pour piloter un servomoteur
 Servo ServoMoteur;  // on crée l'objet monServo
@@ -43,7 +41,7 @@ void setup()
   digitalWrite(ENA, LOW); // Activer pont A
   digitalWrite(ENB, LOW); // Activer pont B
 
-  Wire.begin(8);                // Rejoindre le bus adresse a changer ?
+  Wire.begin(8);                // Rejoindre l'autre carte
   Wire.onReceive(receiveEvent); // Preparer une fonction spécifique a la reception de donnee
   receiveData = 0;              // On initialise receiveData a 0
 }
