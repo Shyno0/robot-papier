@@ -54,7 +54,7 @@ void loop() {
 
     if (receiveData == 'A') // si le robot reçoit "A"
     {
-      Serial.print("position pince fermé  : "); // ecrit dans le moniteur : position pince fermé  :
+      Serial.print("position pince fermé  : ");  // ecrit dans le moniteur : position pince fermé  :
       Serial.println(ServoClose);
       ServoMoteur.writeMicroseconds(ServoClose); // le robot ferme la pince lorsqu'il reçoit "A"
     }
