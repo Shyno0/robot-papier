@@ -163,7 +163,7 @@ void receiveEvent(int nb)
 
 void CommandeRobot()
 {
-  //des données sur la liaison série (lorsque l'on appuie sur '1' ou '2')
+  //des données sur la liaison série (lorsque l'on appuie de '1' a '7')
   if (Serial.available())
   {
     commande = Serial.read(); //on lit
