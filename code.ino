@@ -145,7 +145,7 @@ void droite () // programme pour que le robot tourne a droite
   digitalWrite(IN2, LOW);  // broche IN2 pas alimenté
   delay(1);
   digitalWrite(ENA, HIGH); // Activer pont A
-  digitalWrite(ENB, LOW);  // Désactiver pont A
+  digitalWrite(ENB, LOW);  // Désactiver pont B
 }
 
 // Fonction qui s execute si quelque chose est present sur l interface
