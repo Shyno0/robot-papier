@@ -161,7 +161,7 @@ void receiveEvent(int nb)
 // - I2C normalement finit
 //============================================
 
-void CommandeRobot() // code pour controler le robot (a mettre dans le void loop)
+void CommandeRobot() // code pour controler le robot a l'aide du moniteur serie (a mettre dans le void loop)
 {
   if (Serial.available())  // si données disponibles sur le port
   {
