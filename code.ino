@@ -104,9 +104,9 @@ void loop() {
 
 void avant () // programme pour que le robot avance
 {
-  digitalWrite(IN1, HIGH); // broche IN1 alimenté vitesse A CHANGER ET RAJOUTER ?
+  digitalWrite(IN1, HIGH); // broche IN1 alimenté 
   digitalWrite(IN2, LOW);  // broche IN2 pas alimenté
-  digitalWrite(IN3, HIGH); // broche IN3 alimenté vitesse A CHANGER ET RAJOUTER ?
+  digitalWrite(IN3, HIGH); // broche IN3 alimenté 
   digitalWrite(IN4, LOW);  // broche IN4 pas alimenté
   delay(1);
   digitalWrite(ENA, HIGH); // Activer pont A
@@ -116,9 +116,9 @@ void avant () // programme pour que le robot avance
 void arriere () // programme pour que le robot recule
 {
   digitalWrite(IN1, LOW);  // broche IN1 pas alimenté
-  digitalWrite(IN2, HIGH); // broche IN2 alimenté vitesse A CHANGER ET RAJOUTER ?
+  digitalWrite(IN2, HIGH); // broche IN2 alimenté 
   digitalWrite(IN3, LOW);  // broche IN3 pas alimenté
-  digitalWrite(IN4, HIGH); // broche IN4 alimenté vitesse A CHANGER ET RAJOUTER ?
+  digitalWrite(IN4, HIGH); // broche IN4 alimenté 
   delay(1);
   digitalWrite(ENA, HIGH); // Activer pont A
   digitalWrite(ENB, HIGH); // Activer pont B
